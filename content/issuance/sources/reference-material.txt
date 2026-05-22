@@ -1,0 +1,124 @@
+Reference material linked from https://issuance.wtf/
+Source page last updated: 03/25/2025
+Generated: 2026-05-01
+
+Main page
+- issuance.wtf — https://issuance.wtf/
+
+Writings
+- Minimum Viable Issuance — Anders — Post — 7 Oct 2023
+  https://notes.ethereum.org/%40anderselowsson/MinimumViableIssuance
+- Properties of issuance level: consensus incentives and variability across potential reward curves — Anders — Post — 24 Jan 2024
+  https://ethresear.ch/t/properties-of-issuance-level-consensus-incentives-and-variability-across-potential-reward-curves/18448/
+- Endgame Staking Economics: A Case for Targeting — Ansgar & Caspar — Post — 22 Feb 2024
+  https://ethresear.ch/t/endgame-staking-economics-a-case-for-targeting/18751
+- Electra: Issuance Curve Adjustment Proposal — Ansgar & Caspar — Post — 22 Feb 2024
+  https://ethereum-magicians.org/t/electra-issuance-curve-adjustment-proposal/18825
+- Initial Analysis of Stake Distribution — Julian — Post — 15 Mar 2024
+  https://ethresear.ch/t/initial-analysis-of-stake-distribution/19014
+- Issuance Issues — Initial Issue — Mike — Post — 30 Mar 2024
+  https://notes.ethereum.org/%40mikeneuder/iiii
+- Reward curve with tempered issuance: EIP research post — Anders — Post — 1 Apr 2024
+  https://ethresear.ch/t/reward-curve-with-tempered-issuance-eip-research-post/19171
+- Foundations of minimum viable issuance — Anders — Post — 17 Apr 2024
+  https://notes.ethereum.org/%40anderselowsson/Foundations-of-MVI
+- Reward curve with capped issuance — Anders — Post — 18 Apr 2024
+  https://notes.ethereum.org/%40anderselowsson/Reward-curve-with-capped-issuance
+- Issuance Issues — Subsequent Soliloquy — Mike — Post — 11 May 2024
+  https://notes.ethereum.org/%40mikeneuder/subsol
+- FAQ: Ethereum issuance reduction — Anders — Post — 29 May 2024
+  https://ethresear.ch/t/faq-ethereum-issuance-reduction/19675
+- Issuance Issues — Tertiary Treatise — Mike — Post — 21 Jun 2024
+  https://hackmd.io/%40mikeneuder/iitt
+- Maximum Viable Security: A New Framing for Ethereum Issuance — Artem, damcnuta, Sonya & adcv_ — Post — 06 Jul 2024
+  https://ethresear.ch/t/maximum-viable-security-a-new-framing-for-ethereum-issuance/19992/1
+- The Shape of Issuance Curves to Come — pa7x1 — Post — 10 Sept 2024
+  https://ethresear.ch/t/the-shape-of-issuance-curves-to-come/20405/1
+- Possible futures of the Ethereum protocol, part 3: The Scourge — Vitalik — Post — 20 Oct 2024
+  https://vitalik.eth.limo/general/2024/10/20/futures3.html
+- Practical endgame on issuance policy — Anders — Post — 1 Apr 2024
+  https://ethresear.ch/t/practical-endgame-on-issuance-policy/20747
+- Ethereum Macroeconomics via Dynamics — Eric Downes — Post — 21 Jan 2025
+  https://ethresear.ch/t/ethereum-macroeconomics-via-dynamics/21539/1
+- Impact of Consensus Issuance Yield Curve Changes on Competitive Dynamics in the Ethereum Validator Ecosystem — Antero Eloranta & Santeri Helminen — Post — 28 Jan 2025
+  https://ethresear.ch/t/impact-of-consensus-issuance-yield-curve-changes-on-competitive-dynamics-in-the-ethereum-validator-ecosystem/21617
+- ETH Issuance Discovery Research: Issuance Debate & Case Studies By Staking Cohort — Vivian Zhu, Otakar Korinek & Alex Duckworth — Post — 4 Feb 2025
+  https://ethresear.ch/t/eth-issuance-discovery-research-issuance-debate-case-studies-by-staking-cohort/21664
+- Towards a Formal Framework of the Ethereum Staking Market — Noé Arnold, Juan Beccuti, Thunj Chantramonklasri, Matthias Hafner & Nicolas Oderbolz — Paper — 18 Mar 2025
+  https://arxiv.org/abs/2503.14385
+- Single Slot Finality — Vitalik — Post
+  https://notes.ethereum.org/@vbuterin/single_slot_finality
+- A simple single-slot finality protocol — Post
+  https://ethresear.ch/t/a-simple-single-slot-finality-protocol/14920
+- Orbit SSF: Solo-staking friendly validator set management for SSF — Post
+  https://ethresear.ch/t/orbit-ssf-solo-staking-friendly-validator-set-management-for-ssf/19928
+- Vorbit SSF with circular and spiral finality validator selection and distribution — Post
+  https://ethresear.ch/t/vorbit-ssf-with-circular-and-spiral-finality-validator-selection-and-distribution/20464
+- Cut Ethereum staking issuance debate — Article
+  https://defiprime.com/cut-ethereum-staking-issuance-debate
+- Ethereum issuance (Eth2 Book) — Documentation
+  https://eth2book.info/latest/part2/incentives/issuance/
+- A set-theoretic view of Ethereum coteries - Mike Neuder - Post - 20 Oct 2023
+  https://notes.ethereum.org/@mikeneuder/set-theoretic-ethereum
+- Scalable Infrastructure for Digital Currencies - Geoffrey Ramseyer - Post - Sept 2023
+  https://www.scs.stanford.edu/~geoff/papers/ramseyer-thesis.pdf
+- Ethereum’s Staking Model Needs an Update - Grayscale - Post - 12 May 2026
+  https://www.grayscale.com/the-stack/ethereums-staking-model-needs-an-update
+
+Talks
+- Ethereum Staking Economics Endgame — Ansgar — EthDubai — 20 Apr 2024
+  https://www.youtube.com/watch?t=1755s&v=mayktOkDTRg
+- Issuance Panel — Ansgar, nixo & dapplion — DappCon — 22 May 2024
+  https://www.youtube.com/live/g7PK1RiK2Mg?si=cB6GermCD37NeHhW&t=1542
+- issued issues — Caspar — ZuBerlin — 12 Jun 2024
+  https://streameth.org/zuberlin/watch?session=666968aa07f92b086c285d3c
+- Talk/Discussion: What's the issue with issuance? — Ansgar, Caspar & Christine — EthStaker @ EthCC — 08 July 2024
+  https://ethcc.io/archives/whats-the-issue-with-issuance
+- restaking-burn — Ansgar & Caspar — Restaking Day — 09 Jul 2024
+  https://www.youtube.com/watch?v=xXqXoZbP_Ew
+- Is Ethereum’s Issuance Policy Sustainable? — Ansgar & Caspar — EthCC — 11 July 2024
+  https://ethcc.io/archives/is-ethereums-issuance-policy-sustainable
+- Practical Endgame on Issuance Policy — Anders — Devcon — 14 Nov 2024
+  https://www.youtube.com/watch?v=m91Wu6-cdwk
+- Why Ethereum’s Issuance Policy is Unsustainable — Ansgar & Caspar — Devcon — 14 Nov 2024
+  https://www.youtube.com/watch?v=cUgKXBq017g
+- Maximum Viable Security (MVS) – a new issuance framework — Artem — Devcon — 14 Nov 2024
+  https://www.youtube.com/watch?v=Cjr2ZEzNocc
+- ETH is Money if we choose it to be — Ansgar & Caspar — Bankless Summit — 16 Nov 2024
+  https://x.com/BanklessHQ/status/1861121104884154600
+
+Podcasts
+- Ethereum's Staking Endgame — Uncommon Core 2.0 with Ansgar & Caspar, hosted by Hasu & Jon — 22 Mar 2024
+  https://open.spotify.com/episode/2YhHNjUwj44F1C3LXcCP0N?si=YmbgzZwcRTqaYVct6AzkfA
+- Ethereum's Staking Endgame — YouTube version — 22 Mar 2024
+  https://www.youtube.com/watch?v=ivynR3RI3_Y
+- The Debate Over ETH's Monetary Policy — Bankless with David & Ryan — 10 Apr 2024
+  https://www.youtube.com/watch?v=GLP_qRyPuv4
+- Is Ethereum Printing Too Much ETH? — Infinite Jungle with nixo, hosted by Christine — 10 Apr 2024
+  https://www.youtube.com/watch?si=WoUM2FkgfgdfOSUu&v=qw4Kp8UPBv0&feature=youtu.be
+- Ethereum Staking Wars with EthStaker — Epicenter with nixo & superhiz, hosted by Friederike — 7 Jun 2024
+  https://www.youtube.com/watch?v=2krlPcbpZvQ
+
+Misc
+- A Macro Finance Model for Proof-of-Stake Ethereum — Urban — Paper — 25 Jan 2023
+  https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4335835
+- Towards a holistic formalization of ETH — Brett — Post — 16 Jun 2023
+  https://bmpalatiello.github.io/2023/06/16/formalization-of-eth.html
+- Infinite Jungle: Is There Too Much ETH Staked? Devs Weigh Reduction In Staking Rewards — Podcast clip — with Oisín, hosted by Christine — 27 Feb 2024
+  https://www.youtube.com/watch?v=qw4Kp8UPBv0
+- Infinite Jungle: Ethereum Devs Debate Account Abstraction EIPs for Electra — Podcast clip — with nixo, hosted by Christine — 5 Mar 2024
+  https://www.youtube.com/watch?si=-Qsbu0sQHykFfV4S&t=1425&v=EAgAAXJIx7I&feature=youtu.be
+- Artem's counter-arguments to changing Ethereum issuance — Tweet — Artem — 3 Apr 2024
+  https://twitter.com/artofkot/status/1775632385414959331
+- Bankless Clips: ETH Monetary Policy: The Issuance Debate — Podcast clip — with David & Anthony — 8 Apr 2024
+  https://www.youtube.com/watch?v=iXNtNXy7sxU
+- Bankless Clips: What’s Next for ETH Monetary Policy? — Podcast clip — with David & Ryan — 22 Apr 2024
+  https://www.youtube.com/watch?v=-ihs12qAoY8
+- Sacha's Thoughts on MVI — Post — Sacha — 24 Apr 2024
+  https://hackmd.io/%40sacha/thoughts-on-mvi
+- Philosophical musings by Sacha — Tweet — Sacha — 24 Apr 2024
+  https://x.com/lazyleger/status/1783171166774968355
+- Bell Curve: Exploring EigenLayer and The Future of Ethereum Security — Podcast clip — with Sreeram, hosted by Myles & Mike — 28 May 2024
+  https://www.youtube.com/watch?si=t-YD59a1p3vUN5qn&t=5965&v=ozvMIydgcKs&feature=youtu.be
+- Croissant issuance curve — Tweet — Justin — 5 Feb 2025
+  https://x.com/drakefjustin/status/1887108667675124174

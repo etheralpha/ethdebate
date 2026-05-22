@@ -1,0 +1,3 @@
+Ethereum’s issuance debate is a search for the right long-term balance between economic security, validator incentives, decentralization, and monetary credibility. Recent discussion has surfaced important uncertainties: how much stake is enough, how staking markets evolve, how solo stakers and large operators are affected, and how much Ethereum should prioritize policy stability versus optimization.
+
+There is no risk-free path. Keeping issuance unchanged and changing it both carry tradeoffs. The arguments below are meant to map those tradeoffs clearly, without assuming the answer in advance.

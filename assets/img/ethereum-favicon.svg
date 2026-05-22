@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 417" role="img" aria-label="Ethereum logo">
+  <path fill="#8a92b2" d="M127.9 0 0 212l127.9-58Z"/>
+  <path fill="#626b8f" d="M127.9 0v154L255.8 212Z"/>
+  <path fill="#626b8f" d="M0 212l127.9 72V154Z"/>
+  <path fill="#2f354f" d="M255.8 212 127.9 154v130Z"/>
+  <path fill="#8a92b2" d="M0 235l127.9 182V308Z"/>
+  <path fill="#626b8f" d="M255.8 235 127.9 417V308Z"/>
+  <path fill="#626b8f" d="M0 235l127.9 73v-24Z"/>
+  <path fill="#2f354f" d="M255.8 235l-127.9 49v24Z"/>
+</svg>

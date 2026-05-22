@@ -1,0 +1,6 @@
+- option: "Change the issuance curve"
+  details: "Update the staking reward curve to change how issuance responds as the amount of staked ETH changes. [Read the informal proposal by Ansgar & Caspar](https://ethereum-magicians.org/t/electra-issuance-curve-adjustment-proposal/18825)"
+- option: "Do not change the issuance curve"
+  details: "Keep the current staking reward curve and continue operating under the existing issuance design."
+- option: "Revisit later"
+  details: "Continue research, monitor staking dynamics, and reconsider the question as more data or protocol changes emerge."

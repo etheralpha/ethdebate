@@ -1,0 +1,85 @@
+- argument: "Ethereum may be overpaying for security"
+  claims:
+    - "If stake participation grows beyond what is needed for economic security, extra issuance becomes a deadweight cost: hardware, risk, liquidity loss, taxes, and opportunity cost are paid for without proportional security gain."
+    - "Additional staked ETH does not necessarily create proportional additional safety once Ethereum already has enough economic security for its threat model."
+  counterarguments:
+    - "“Overpaying” depends on uncertain assumptions about what Ethereum will secure in the future. If Ethereum grows into much higher native TVL, RWA settlement, or broader economic activity, today’s “excess” security may not be excess."
+    - "Security needs are not only about the value currently secured. They also include resilience to future shocks, governance capture, censorship pressure, and attacks that may be hard to model."
+- argument: "The current curve does not bound stake participation"
+  claims:
+    - "The current issuance curve continues incentivizing staking as stake rises, so the system may drift toward very high staking ratios."
+    - "If too much ETH is staked, raw ETH may become less useful relative to yield-bearing substitutes, and staking may become the default passive ETH position."
+    - "A curve that reduces incentives at high participation could help Ethereum discover a lower-stake equilibrium instead of implicitly encouraging all passive ETH to stake."
+  counterarguments:
+    - "The equilibrium is unknown. Stake may plateau well below 80–100% if DeFi yields, opportunity costs, liquidity needs, or changing market conditions create natural limits."
+    - "A protocol-level attempt to target a lower staking ratio may be premature if the current curve has not yet shown that it will produce the feared high-stake equilibrium."
+- argument: "High stake can push ETH out of its own monetary role"
+  claims:
+    - "If most ETH is staked, LSTs may become the dominant collateral or money asset across DeFi."
+    - "This introduces smart contract risk, governance risk, slashing risk, custodial risk, depeg risk, and possible “too big to fail” social-layer risk."
+    - "If one or a few LSTs become embedded across DeFi, Ethereum’s base economy may depend on third-party governance and contract assumptions rather than raw ETH."
+  counterarguments:
+    - "Lowering issuance may not stop LST dominance. LSTs and custodians have economies of scale, better UX, liquidity, DeFi integrations, and sometimes external business models. If LSTs are the endgame under both regimes, changing issuance may only accelerate the same outcome."
+    - "The better solution may be improving LST competition, reducing third-party risk, or designing protocol-native alternatives rather than changing issuance."
+- argument: "Reducing nominal issuance may preserve real yield better than letting all ETH stake"
+  claims:
+    - "At very high stake ratios, nominal yield can look positive while real yield approaches zero after dilution and may be worse after taxes."
+    - "A lower-issuance equilibrium may prevent everyone from being forced into staking just to avoid dilution."
+    - "Lower total issuance can reduce the gap between nominal yield and real ETH-denominated return."
+  counterarguments:
+    - "Real yield can still converge to zero under a changed curve. If the marginal actor is an LST holder, custodian, or large operator with very low costs, the equilibrium may still be set by low-cost actors rather than solo stakers."
+    - "Some proposals may reduce real yield faster than the current curve if stake remains high and nominal rewards are sharply compressed."
+- argument: "Issuance should be minimum viable, not an open-ended subsidy"
+  claims:
+    - "Ethereum should issue only what is necessary to secure the network."
+    - "Excess issuance can subsidize staking businesses, LSTs, custodians, and yield-stacking products rather than improving Ethereum’s security."
+    - "A lower curve could reduce unnecessary costs imposed on ETH holders and users who do not want to stake."
+  counterarguments:
+    - "“Minimum viable” is dangerous if we do not know the true minimum. If the curve is too aggressive, Ethereum may need another monetary-policy change later, undermining ossification and making monetary policy feel discretionary."
+    - "The goal may be better framed as setting a safe staking equilibrium rather than minimizing issuance for its own sake."
+- argument: "A clear maximum-issuance target may improve ETH’s monetary narrative"
+  claims:
+    - "A hard maximum issuance target can become a simple, durable guarantee."
+    - "A lower cap may strengthen ETH’s monetary premium by giving users a clearer upper bound on inflation."
+    - "A credible maximum issuance guarantee may be easier to explain than a curve that can continue issuing more as stake rises."
+  counterarguments:
+    - "The stronger monetary narrative may be ossification itself, not optimization. Reopening issuance can make ETH feel less credible as money even if the resulting curve is theoretically better."
+    - "Narrative and demand may matter more for ETH value accrual than small changes to issuance, especially if users perceive the change as discretionary monetary management."
+- argument: "Acting sooner may be easier than acting after entrenchment"
+  claims:
+    - "If stake keeps rising and LST or custodial structures deepen, the social and economic interests against reform become stronger."
+    - "Delaying can make eventual change harder and more disruptive."
+    - "Once staking businesses, DeFi collateral markets, ETFs, and custodians are built around current issuance, any later change may face stronger opposition."
+  counterarguments:
+    - "Acting too early can create a self-inflicted shock before the problem is proven. If the feared equilibrium never arrives, Ethereum will have paid the credibility cost of changing monetary policy unnecessarily."
+    - "A slower process may produce better data, wider legitimacy, and more confidence that the change is needed."
+- argument: "Institutional and custodial staking could become a bigger capture vector"
+  claims:
+    - "If ETFs and custodians feel compelled to stake to stay competitive, staking may concentrate in regulated, geographically clustered institutions."
+    - "An issuance change could reduce the incentive for all passive ETH to flow into these channels."
+    - "Lowering the reward for passive staking may reduce the pressure for every ETH product to include staking by default."
+  counterarguments:
+    - "Custodians may be the actors least deterred by lower yield because staking can be a loss leader, fee product, or retention tool. Lower APR may hurt home stakers before it meaningfully reduces centralized staking."
+    - "If institutions can internalize costs or monetize staking through fees, a lower curve may increase their relative advantage."
+- argument: "High issuance can worsen DeFi systemic risk rather than help DeFi"
+  claims:
+    - "High staking yield can make LSTs the preferred collateral asset, pushing DeFi toward yield-bearing substitutes for ETH."
+    - "If DeFi becomes dependent on LSTs, risk from slashing, governance capture, smart contracts, custodians, and depegs can become embedded throughout the system."
+    - "A lower issuance curve may reduce the protocol subsidy that encourages DeFi to build around LST yield."
+  counterarguments:
+    - "Staking yield currently supports deep ETH-denominated liquidity, collateral utility, and composability. Reducing it may weaken parts of DeFi before alternative sources of organic ETH demand are ready."
+    - "If LSTs remain dominant even after an issuance reduction, DeFi may keep the same systemic risks while also losing some yield-supported liquidity."
+- argument: "The current curve may not reflect today’s staking environment"
+  claims:
+    - "The current reward curve was designed before the full effects of the Merge-era staking market, LSTs, restaking, MEV, institutional staking, and staking ETFs were known."
+    - "A curve that was reasonable in an earlier environment may be miscalibrated for a more mature and financialized staking market."
+  counterarguments:
+    - "The fact that the environment changed does not automatically imply the curve should change. Ethereum may need stronger evidence that the current curve creates unacceptable outcomes before altering monetary policy."
+    - "Future roadmap changes may again alter the environment, so optimizing for today’s market could become outdated quickly."
+- argument: "A lower-stake equilibrium may be healthier than near-universal staking"
+  claims:
+    - "If nearly all ETH is staked, Ethereum can start to resemble delegated proof-of-stake in practice, with liquid staking providers, custodians, or staking services mediating most participation."
+    - "A lower equilibrium may preserve more raw ETH liquidity, reduce pressure to stake passively, and limit the scale of staking-related externalities."
+  counterarguments:
+    - "A lower staking ratio is not the same as better decentralization. If the lower ratio is mostly controlled by a small number of large operators, Ethereum could have less stake but worse validator diversity."
+    - "The more important target may be Nakamoto coefficient, operator diversity, geographic distribution, client diversity, and censorship resistance rather than a specific stake percentage."

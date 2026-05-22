@@ -1,0 +1,19 @@
+title: Ethereum Issuance Debate
+description: An educational overview of the Ethereum issuance change debate, possible paths, and arguments for and against.
+eyebrow: Ethereum issuance debate
+hero_title: Mapping the paths and tradeoffs
+paths_title: Potential Paths
+paths_note: These are broad directions under discussion, not endorsements.
+arguments_title: Arguments For and Against
+arguments_note: Open each item to compare the core claims with common counterarguments.
+arguments_for_title: Arguments For
+arguments_against_title: Arguments Against
+source_files_title: Source Files
+source_files_note: The content on this page was generated with the help of AI from source files. You can download them to run analysis yourself.
+resources_title: Key Resources
+resources_note: A starting point for readers who want to go deeper.
+source_files_button_label: View source files
+social_image: /assets/mapping-paths-tradeoffs-cover.png
+theme_color: '#f7f5f1'
+# Optional. Add after deploying if you want absolute social image/canonical URLs.
+site_url: ''

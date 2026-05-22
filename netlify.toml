@@ -1,0 +1,9 @@
+[build]
+  command = "python3 -m pip install -r requirements.txt && python3 build.py"
+  publish = "public"
+
+[[redirects]]
+  from = "/"
+  to = "/issuance"
+  status = 302
+  force = true
