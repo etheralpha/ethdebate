@@ -1,3 +1,4 @@
+site_url: 'https://ethdebate.com'
 title: Ethereum Issuance Debate
 description: An educational overview of the Ethereum issuance change debate, possible paths, and arguments for and against.
 eyebrow: Ethereum issuance debate
@@ -13,7 +14,6 @@ source_files_note: The content on this page was generated with the help of AI fr
 resources_title: Key Resources
 resources_note: A starting point for readers who want to go deeper.
 source_files_button_label: View source files
-social_image: /assets/mapping-paths-tradeoffs-cover.png
+social_image: /assets/img/cover.png
 theme_color: '#f7f5f1'
 # Optional. Add after deploying if you want absolute social image/canonical URLs.
-site_url: ''
