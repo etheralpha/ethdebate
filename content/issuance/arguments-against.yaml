@@ -5,6 +5,7 @@
     - "Changing issuance can create the perception that Ethereum’s monetary policy is discretionary rather than durable."
   counterarguments:
     - "The current curve is itself a design choice, not sacred. If it creates predictable negative externalities, refusing to fix it may ossify a bad policy."
+    - "Ethereum has a long history of adjusting its issuance: 5 times directly (EIP-649, EIP-1234, EIP-2982, EIP-1559 & EIP-3675) and 2 times indirectly (EIP-4844 & EIP-7918). The research on Minimum Viable Issuance (MVI) actually leads to a commitment of ossifying the issuance to a max of 0.5% per year, that is enough for our security budget." 
     - "A one-time change that creates a clearer maximum issuance guarantee could strengthen monetary credibility if it is broadly legitimate and then ossified."
 - argument: "The change may hurt solo stakers first"
   claims:
@@ -12,6 +13,7 @@
     - "Large operators, custodians, and LSTs can operate at thinner margins or subsidize staking through other revenue."
     - "A lower APR may squeeze home stakers before it squeezes institutions."
   counterarguments:
+    - "Research on the matter actually shows that the current regime is hurting Solo stakers. The Solo staker economics revolve around the Deposit size of ETH at stake (D). Neither a D that's too high nor too low is desirable for the health of solo stakers. The ideal target for D should be ~25% of the total supply (vs 33% trending upwards today), the translation of MVI in the reward curve will specifically target this D."
     - "If stake trends toward very high participation, solo stakers may be hurt anyway through dilution-adjusted yield, LST dominance, and professionalized competition. A lower stake equilibrium may preserve solo staking for those who value protocol participation."
     - "Solo-staker outcomes depend on the exact curve, validator duties, hardware requirements, MEV, tax treatment, and protocol features such as FOCIL or correlated-penalty changes."
 - argument: "Lower issuance may accelerate LST dominance"
@@ -20,7 +22,8 @@
     - "This may centralize staking around LSTs and custodians faster than the current curve would."
     - "Large LSTs may be able to compete on liquidity and integrations even when staking margins become unattractive for smaller operators."
   counterarguments:
-    - "High issuance can also strengthen LSTs by making yield more attractive and encouraging every ETH holder to seek a liquid yield-bearing substitute. The LST-risk argument cuts both ways."
+    - "This arguement is farfetched and rather nonsensical. All modeling approaches points out a diminution of LST dominance. LST providers reguarly claim lacking competitivity on operating costs and software maintenance costs."
+    - "The current regime of high issuance snowballs towards more ETH at stake. Dilution pushes every ETH holder to consider yield-bearing substitute and staking, notably with LST is the most attractive option due to the definition of the current staking reward curve."
     - "A well-designed lower curve could reduce total demand for staking, which may limit the size and systemic importance of LSTs even if some concentration remains."
 - argument: "The problem may be misdiagnosed"
   claims:
@@ -29,13 +32,15 @@
     - "If the real problem is lack of productive ETH demand or insufficient LST competition, an issuance change may treat the symptom rather than the cause."
   counterarguments:
     - "Even if the root cause is lack of alternatives, issuance still subsidizes the default choice. Lowering issuance may reduce the force pushing passive ETH into staking while other demand sources develop."
-    - "An issuance change does not need to be the only solution; it can be paired with efforts to improve ETH utility, DeFi demand, staking diversity, and LST risk."
+    - "Idle ETH is fine and should be an economically sound option for ETH to claim proporty of a good store of value. The dilution effect of the current high issuance is holding ETH down."
+    - "ETH flowing out of staking means ETH flowing into DeFi and new forms of usage. An issuance change does not need to be the only solution; it can be paired with efforts to improve ETH utility, DeFi demand, staking diversity, and LST risk."
 - argument: "Future protocol architecture is uncertain"
   claims:
     - "Lean Ethereum, SSF, FOCIL, changed validator duties, preconfirmations, or other roadmap items may alter security needs and validator economics."
     - "It is risky to optimize issuance around today’s architecture when tomorrow’s validator role may look different."
     - "If the protocol changes validator responsibilities, the correct incentive level may be different from what current issuance models assume."
   counterarguments:
+    - "Lean Ethereum roadmap is not uncertained, it has been unvailed in 2024 and specs stabilized in early 2026 as well as devnet phase started (4th devnet as of May 2026). Part of Lean's objectives are Faster Finality which would benefit from the MVI as it incentivises a stabilisation of the amount of ETH at stake."
     - "Waiting for full architectural certainty may mean never acting. Issuance can be designed around durable goals such as a maximum issuance cap or safer stake range while future features inform how aggressive the curve should be."
     - "A gradual or conservative change could reduce current externalities while leaving room for future architecture to determine longer-term validator economics."
 - argument: "There may only be one credible chance to change issuance"
@@ -44,21 +49,24 @@
     - "Too little issuance may be worse than too much if it forces later rework or weakens decentralization."
     - "The bar for changing monetary policy should be high because repeated changes can make ETH look less reliable as money."
   counterarguments:
-    - "This “one chance” framing may be too rigid. Ethereum has changed issuance before, and a permanent max-issuance target can coexist with future curve refinements if necessary."
-    - "If the current curve is known to be flawed, refusing to change because the first fix might be imperfect can also damage credibility."
+    - "This “one chance” framing is way too rigid. Ethereum has changed issuance before, and a permanent max-issuance target can coexist with future curve refinements if necessary."
+    - "If the current curve is known to be flawed, refusing to change because the first fix might be imperfect will do more damage to the credibility."
 - argument: "The current stake equilibrium is not known"
   claims:
     - "Since no one knows where stake settles under the current curve, the safer option may be to observe longer rather than force a new equilibrium."
     - "Stake participation may already have natural limiting factors such as liquidity preference, DeFi opportunities, operating costs, taxes, risk, and changing market conditions."
   counterarguments:
+    - "Staking yield under current curve is impossible to compete against for any non staking related services. This is true all the way towards 100% of ETH at stake (yielding 1.6%). Staking equilibrium can not be known because it simply can not be reached with the current curve"
     - "Observing has opportunity costs. If stake continues rising, the eventual correction becomes more politically difficult and economically disruptive."
-    - "Protocol design often needs to act before worst-case equilibria arrive, especially when waiting may entrench the actors who benefit from the current design."
+    - "Protocol design often needs to act before worst-case equilibria arrive, especially when waiting will entrench the actors who benefit from the current design."
 - argument: "Issuance caps may optimize for staking ratio rather than decentralization"
   claims:
     - "A lower staking ratio does not necessarily mean more decentralization."
     - "If a reduced issuance curve causes smaller operators to exit while large custodians remain, Ethereum could have less total stake but a worse operator distribution."
     - "The relevant decentralization targets may include Nakamoto coefficient, ownership diversity, operator diversity, geography, client diversity, and censorship resistance rather than stake percentage alone."
   counterarguments:
+    - "A lower staking ratio may not necessarily mean more decentralization but the current regime does inexorably lead to less decentralization. The current regime is hurting solo stakers who need a deposit size neither too high nor too low. Economy of scale will favor even more the large actors as more ETH go at stake."
+    - "There is no such thing as public Nakamoto coefficient for Ethereum to benchmark against."
     - "A very high staking ratio can create its own decentralization risks by making staking intermediaries, LSTs, and custodians more systemically important."
     - "Stake ratio and decentralization are distinct but related. A lower-stake target may still be useful if paired with other measures that protect operator diversity."
 - argument: "The debate may be too narrow or under-modeled"
@@ -67,6 +75,7 @@
     - "A narrow model may miss real-world economic behavior and second-order effects."
     - "The discussion may need more input from economists, application builders, DeFi risk analysts, solo stakers, institutions, and users before being treated as settled."
   counterarguments:
+    - "Research has been ongoing for 4 years on the topic with constant converge on the security failures of the current curve and the negative externalities of its overprinting."
     - "Perfect modeling is impossible. The current curve also embeds assumptions and creates real-world incentives. Broad socialization, external review, and slow rollout can reduce risk without requiring omniscience."
     - "Research uncertainty is a reason to improve the process, not necessarily a reason to keep an incentive curve that may already be producing harmful dynamics."
 - argument: "A native LST or structural LST solution may be prerequisite"
@@ -83,6 +92,7 @@
     - "Demand, narrative, and usage may matter more than another issuance reduction."
     - "If users interpret the change as another monetary-policy adjustment, it may weaken ETH’s store-of-value narrative rather than strengthen it."
   counterarguments:
+    - "All macro models converge on the matter: ceteris paribus a less expansive monetary improves the value accrual. For Ethereum specific modeling see Optimal Issuance for Proof-of-Stake Blockchains by U Jermann (2025)."
     - "Issuance reform is not just about short-term price. It is about long-term security costs, real yield, dilution, monetary guarantees, and the structure of Ethereum’s staking market."
     - "The Merge does not prove that issuance is irrelevant; many other market and narrative factors affected ETH/BTC during that period."
 - argument: "Lower issuance could weaken DeFi liquidity and composability"
@@ -92,7 +102,9 @@
     - "Cutting issuance could reduce the attractiveness of ETH/LST collateral, shrink liquidity, weaken lending markets, and make some ETH-denominated strategies less viable."
     - "There is also a transitional risk: if many protocols have built around LST yield assumptions, a sharp yield reduction could create repricing, liquidity migration, or insolvency risk in yield-dependent products."
   counterarguments:
-    - "Ethereum’s purpose is not to subsidize DeFi strategies that only work under excessive issuance. If DeFi depends on protocol inflation rather than organic demand, that is a sign of fragility, not a reason to preserve the subsidy. High issuance can also push DeFi toward LST dominance, making DeFi’s base collateral more dependent on third-party contracts, governance, slashing assumptions, and depeg risk."
+    - "Ethereum’s purpose is not to subsidize DeFi strategies that only work under excessive issuance. If DeFi depends on protocol inflation rather than organic demand, that is a sign of fragility, not a reason to preserve the subsidy. High issuance pushes DeFi toward LST dominance, making DeFi’s base collateral more dependent on third-party contracts, governance, slashing assumptions, and depeg risk."
+    - "DeFi existed before the Merge and will exist after issuance reduction. DeFi adopted staking derivatives because they were impossible to compete against under current regime. Issuance reduction will strengthen innovation and sustainability of the ecosystem."
+    - "As of today, consensus level risks are being brought through LST and restaking into DeFi further fragilizing Ethereum's credible neutrality and growing too big to fail entities."
 - argument: "There may be better levers than issuance"
   claims:
     - "If the goal is decentralization, Ethereum may have more direct tools than changing monetary policy."
