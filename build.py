@@ -32,6 +32,17 @@ PUBLIC_DIR = ROOT / "public"
 CONFIG_PATH = ROOT / "config.yaml"
 
 
+GOOGLE_ANALYTICS_TAG = """<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VJBJDNDYR8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VJBJDNDYR8');
+</script>"""
+
+
 def read_text(path: Path) -> str:
 	return path.read_text(encoding="utf-8")
 
@@ -490,6 +501,7 @@ def page_html(
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png" />
   <link rel="stylesheet" href="/assets/style.css" />
   <script type="application/ld+json">{structured_data(topic)}</script>
+  {GOOGLE_ANALYTICS_TAG}
 </head>
 <body>
   <main class="site-shell">
@@ -618,7 +630,19 @@ def main() -> None:
 	# Small fallback for local static serving. Netlify redirects / to /issuance/.
 	default_slug = "issuance" if "issuance" in slugs else slugs[0]
 	(PUBLIC_DIR / "index.html").write_text(
-		f'<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=/{attr(default_slug)}"><title>Redirecting…</title><p><a href="/{attr(default_slug)}">Continue to {html.escape(default_slug)}</a></p>',
+		f'''<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="refresh" content="0; url=/{attr(default_slug)}" />
+  <title>Redirecting…</title>
+  {GOOGLE_ANALYTICS_TAG}
+</head>
+<body>
+  <p><a href="/{attr(default_slug)}">Continue to {html.escape(default_slug)}</a></p>
+</body>
+</html>
+''',
 		encoding="utf-8",
 	)
 
