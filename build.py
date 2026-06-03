@@ -17,6 +17,7 @@ The generated site is written to public/.
 from __future__ import annotations
 
 import html
+import json
 import re
 import shutil
 from pathlib import Path
@@ -29,6 +30,17 @@ CONTENT_DIR = ROOT / "content"
 ASSETS_DIR = ROOT / "assets"
 PUBLIC_DIR = ROOT / "public"
 CONFIG_PATH = ROOT / "config.yaml"
+
+
+GOOGLE_ANALYTICS_TAG = """<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VJBJDNDYR8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VJBJDNDYR8');
+</script>"""
 
 
 def read_text(path: Path) -> str:
@@ -274,6 +286,150 @@ def merge_topic_defaults(topic: dict[str, Any]) -> dict[str, Any]:
 	return {**defaults, **topic}
 
 
+
+def absolute_url(path: str, site_url: str) -> str:
+	base = site_url.rstrip("/")
+	if not base:
+		return path
+	return f"{base}/{path.lstrip('/')}"
+
+
+def markdown_bullet_list(items: list[Any]) -> str:
+	if not items:
+		return "- None listed."
+	return "\n".join(f"- {str(item)}" for item in items)
+
+
+def topic_markdown(topic_dir: Path, topic: dict[str, Any]) -> str:
+	"""Generate a clean Markdown representation of a topic for people and AI tools."""
+	title = str(topic.get("title") or topic.get("hero_title") or "Debate")
+	description = str(topic.get("description") or "")
+	overview = read_text(topic_dir / "overview.md").strip()
+	paths = read_yaml(topic_dir / "potential-paths.yaml")
+	arguments_for = read_yaml(topic_dir / "arguments-for.yaml")
+	arguments_against = read_yaml(topic_dir / "arguments-against.yaml")
+	resources_path = topic_dir / "key-resources.yaml"
+	resources = read_yaml(resources_path) if resources_path.exists() else []
+
+	lines = [f"# {title}"]
+	if description:
+		lines.extend(["", f"> {description}"])
+	lines.extend(["", "## Overview", "", overview, "", "## Potential Paths"])
+
+	for path in paths:
+		lines.extend(["", f"### {path.get('option', 'Untitled option')}", "", str(path.get("details") or "").strip()])
+
+	def append_arguments(heading: str, arguments: list[dict[str, Any]]) -> None:
+		lines.extend(["", f"## {heading}"])
+		for entry in arguments:
+			lines.extend([
+				"",
+				f"### {entry.get('argument', 'Untitled argument')}",
+				"",
+				"#### Claims",
+				"",
+				markdown_bullet_list(entry.get("claims") or []),
+				"",
+				"#### Counterarguments",
+				"",
+				markdown_bullet_list(entry.get("counterarguments") or []),
+			])
+
+	append_arguments("Arguments For", arguments_for)
+	append_arguments("Arguments Against", arguments_against)
+
+	if resources:
+		lines.extend(["", "## Key Resources"])
+		for resource in resources:
+			title = str(resource.get("title") or "Untitled resource")
+			url = str(resource.get("url") or "")
+			meta = str(resource.get("meta") or "").strip()
+			description = str(resource.get("description") or "").strip()
+			entry = f"- [{title}]({url})" if url else f"- {title}"
+			if meta:
+				entry += f" — {meta}"
+			if description:
+				entry += f". {description}"
+			lines.append(entry)
+
+	source_files_link = str(topic.get("source_files_link") or "").strip()
+	if source_files_link:
+		lines.extend(["", "## Source Files", "", f"- [View source files]({source_files_link})"])
+
+	return "\n".join(lines).strip() + "\n"
+
+
+def structured_data(topic: dict[str, Any]) -> str:
+	"""Return Schema.org JSON-LD describing the generated topic page."""
+	canonical = canonical_url(topic)
+	payload: dict[str, Any] = {
+		"@context": "https://schema.org",
+		"@type": "Article",
+		"headline": str(topic.get("title") or "Debate"),
+		"description": str(topic.get("description") or ""),
+		"inLanguage": "en",
+		"isAccessibleForFree": True,
+	}
+	if canonical:
+		payload["url"] = canonical
+	image = social_image_url(topic)
+	if image:
+		payload["image"] = image
+	return json.dumps(payload, ensure_ascii=False, separators=(",", ":"))
+
+
+def write_ai_and_discovery_files(topics: list[dict[str, Any]], topic_markdowns: dict[str, str]) -> None:
+	"""Generate crawler discovery files and optional AI-readable context files."""
+	defaults = read_yaml(CONFIG_PATH) if CONFIG_PATH.exists() else {}
+	if not isinstance(defaults, dict):
+		defaults = {}
+	site_url = str(defaults.get("site_url") or "").rstrip("/")
+	site_title = str(defaults.get("title") or "Ethereum Debate")
+	description = str(defaults.get("description") or "A neutral educational resource for Ethereum protocol debates.")
+
+	robots = "User-agent: *\nAllow: /\n"
+	if site_url:
+		robots += f"\nSitemap: {site_url}/sitemap.xml\n"
+	(PUBLIC_DIR / "robots.txt").write_text(robots, encoding="utf-8")
+
+	urls = []
+	if site_url:
+		urls.append(f"{site_url}/")
+		for topic in topics:
+			slug = str(topic.get("slug") or "").strip("/")
+			if slug:
+				urls.append(f"{site_url}/{slug}")
+	sitemap = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+	for url in urls:
+		sitemap.extend(["  <url>", f"    <loc>{html.escape(url)}</loc>", "  </url>"])
+	sitemap.append("</urlset>")
+	(PUBLIC_DIR / "sitemap.xml").write_text("\n".join(sitemap) + "\n", encoding="utf-8")
+
+	llms = [f"# {site_title}", "", f"> {description}", "", "A neutral educational resource that maps Ethereum debate topics, possible paths, arguments, counterarguments, and source material.", "", "## Topics"]
+	for topic in topics:
+		slug = str(topic.get("slug") or "").strip("/")
+		if not slug:
+			continue
+		title = str(topic.get("title") or topic_label(topic))
+		topic_desc = str(topic.get("description") or "")
+		md_url = absolute_url(f"/{slug}.md", site_url)
+		llms.append(f"- [{title}]({md_url}): {topic_desc}")
+	llms.extend(["", "## Additional Files", "", f"- [Full site context]({absolute_url('/llms-full.txt', site_url)}): Combined Markdown context for all topics.", f"- [Sitemap]({absolute_url('/sitemap.xml', site_url)}): Human-facing page URLs."])
+	llms_text = "\n".join(llms).strip() + "\n"
+	(PUBLIC_DIR / "llms.txt").write_text(llms_text, encoding="utf-8")
+	# Compatibility alias used by some AI tooling conventions.
+	(PUBLIC_DIR / "llms-ctx.txt").write_text(llms_text, encoding="utf-8")
+
+	full = [f"# {site_title}: Full Context", "", f"> {description}"]
+	for topic in topics:
+		slug = str(topic.get("slug") or "").strip("/")
+		if slug and slug in topic_markdowns:
+			full.extend(["", "---", "", topic_markdowns[slug].strip()])
+	full_text = "\n".join(full).strip() + "\n"
+	(PUBLIC_DIR / "llms-full.txt").write_text(full_text, encoding="utf-8")
+	# Compatibility alias used by some AI tooling conventions.
+	(PUBLIC_DIR / "llms-ctx-full.txt").write_text(full_text, encoding="utf-8")
+
 def page_html(
 	topic: dict[str, Any],
 	topics: list[dict[str, Any]],
@@ -344,6 +500,8 @@ def page_html(
   <link rel="icon" href="/assets/img/favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png" />
   <link rel="stylesheet" href="/assets/style.css" />
+  <script type="application/ld+json">{structured_data(topic)}</script>
+  {GOOGLE_ANALYTICS_TAG}
 </head>
 <body>
   <main class="site-shell">
@@ -407,7 +565,7 @@ def page_html(
 
 
 
-def build_topic(topic_dir: Path, topics: list[dict[str, Any]]) -> str:
+def build_topic(topic_dir: Path, topics: list[dict[str, Any]]) -> tuple[str, str]:
 	topic = merge_topic_defaults(read_yaml(topic_dir / "topic.yaml"))
 	slug = str(topic.get("slug") or topic_dir.name)
 	topic["slug"] = slug
@@ -432,7 +590,9 @@ def build_topic(topic_dir: Path, topics: list[dict[str, Any]]) -> str:
 	)
 
 	(PUBLIC_DIR / f"{slug}.html").write_text(html_out, encoding="utf-8")
-	return slug
+	markdown_out = topic_markdown(topic_dir, topic)
+	(PUBLIC_DIR / f"{slug}.md").write_text(markdown_out, encoding="utf-8")
+	return slug, markdown_out
 
 
 def main() -> None:
@@ -459,13 +619,30 @@ def main() -> None:
 		topics.append(topic)
 
 	slugs = []
+	topic_markdowns: dict[str, str] = {}
 	for topic_dir in topic_dirs:
-		slugs.append(build_topic(topic_dir, topics))
+		slug, markdown_out = build_topic(topic_dir, topics)
+		slugs.append(slug)
+		topic_markdowns[slug] = markdown_out
+
+	write_ai_and_discovery_files(topics, topic_markdowns)
 
 	# Small fallback for local static serving. Netlify redirects / to /issuance/.
 	default_slug = "issuance" if "issuance" in slugs else slugs[0]
 	(PUBLIC_DIR / "index.html").write_text(
-		f'<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=/{attr(default_slug)}"><title>Redirecting…</title><p><a href="/{attr(default_slug)}">Continue to {html.escape(default_slug)}</a></p>',
+		f'''<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="refresh" content="0; url=/{attr(default_slug)}" />
+  <title>Redirecting…</title>
+  {GOOGLE_ANALYTICS_TAG}
+</head>
+<body>
+  <p><a href="/{attr(default_slug)}">Continue to {html.escape(default_slug)}</a></p>
+</body>
+</html>
+''',
 		encoding="utf-8",
 	)
 
